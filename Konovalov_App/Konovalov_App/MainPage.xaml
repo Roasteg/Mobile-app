@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Konovalov_App.MainPage">
+
+    <StackLayout>
+        <Frame BackgroundColor="Aqua" Padding="40" CornerRadius="0">
+            <Label Text="Алё" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+        <Label Text="Алё" FontSize="Title" Padding="30,10,30,10"/>
+        <Label Text="Ну как там с деньгами?" FontSize="16" Padding="30,0,30,0"/>
+        <Label FontSize="16" Padding="30,24,30,0">
+            <Label.FormattedText>
+                <FormattedString>
+                    <FormattedString.Spans>
+                        <Span Text="Какими деньгами?"/>
+                        <Span Text="Которые я вложил" FontAttributes="Bold"/>
+                    </FormattedString.Spans>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+    </StackLayout>
+
+</ContentPage>
