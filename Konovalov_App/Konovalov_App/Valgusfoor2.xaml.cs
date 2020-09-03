@@ -16,6 +16,14 @@ namespace Konovalov_App
         public Valgusfoor2()
         {
             //InitializeComponent();
+            Button on = new Button()
+            {
+                
+                Text = "Start",
+                FontSize = 30,
+                FontAttributes= FontAttributes.Bold
+
+            };
             Label punane = new Label()
             {
                 Text = "punane",
@@ -23,12 +31,30 @@ namespace Konovalov_App
                 FontSize = 30,
 
             };
+            Frame pun = new Frame()
+            {
+                BackgroundColor = Color.Red,
+                Content = punane,
+                Margin = new Thickness(80, 0, 80, 0),
+                CornerRadius = 90,
+            };
             Label kollane = new Label()
             {
                 Text = "kollane",
                 TextColor = Color.Yellow,
                 FontSize = 30,
+                FontAttributes = FontAttributes.Bold
 
+            };
+            Frame kol = new Frame()
+            {
+                BackgroundColor = Color.Yellow,
+                Content = kollane,
+                Margin = new Thickness( 80, 0, 80, 0),
+                CornerRadius = 90,
+
+                
+                
             };
             Label roheline = new Label()
             {
@@ -37,13 +63,26 @@ namespace Konovalov_App
                 FontSize = 30,
 
             };
+            Frame roh = new Frame()
+            {
+                BackgroundColor = Color.Green,
+                Content = roheline,
+                Margin = new Thickness(80, 0, 80, 0),
+                CornerRadius = 90,
+            };
             StackLayout stackLayout = new StackLayout()
             {
-                Children = {punane, kollane, roheline}
+                Children = {pun, kol, roh}
 
             };
             Content = stackLayout;
+            stackLayout.Orientation = StackOrientation.Horizontal;
+            
+
+           
+
         }
+     
 
     }
 }

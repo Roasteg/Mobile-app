@@ -10,7 +10,7 @@ namespace Konovalov_App
         {
             InitializeComponent();
 
-            MainPage = new Valgusfoor();
+            MainPage = new Page1();
         }
 
         protected override void OnStart()

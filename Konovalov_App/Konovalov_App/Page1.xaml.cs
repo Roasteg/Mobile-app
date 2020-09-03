@@ -20,7 +20,7 @@ namespace Konovalov_App
 
         private void btn_Clicked(object sender, EventArgs e)
         {
-            //btn.Text = "Tere!";
+            
             clik++;
             btn.Text = clik.ToString();
             if (clik % 5 == 0)
