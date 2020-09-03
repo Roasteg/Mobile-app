@@ -33,5 +33,10 @@ namespace Konovalov_App
                 lbl.Text = "Nupp";
             }
         }
+        private void btn2_Clicked(object sender, EventArgs e)
+        {
+            clik = 0;
+            btn.Text = clik.ToString();
+        }
     }
 }

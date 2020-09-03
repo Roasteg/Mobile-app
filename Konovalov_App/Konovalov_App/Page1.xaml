@@ -3,33 +3,34 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Konovalov_App.Page1">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Orientation="Vertical">
             <Label x:Name="lbl" Text="Nupp!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" LineBreakMode="CharacterWrap" />
+            <StackLayout Orientation="Horizontal">
 
 
                 <Button x:Name="btn" 
-                    Text="Vajuta siia" 
-                    BackgroundColor="DarkCyan" 
-                    BorderColor="Aquamarine" 
-                    FontFamily="Comic Sans MS" 
-                    FontSize="30px" 
-                    Clicked="btn_Clicked">
+                        Text="Vajuta siia" 
+                        BackgroundColor="DarkCyan" 
+                        BorderColor="Aquamarine" 
+                        FontFamily="Comic Sans MS" 
+                        FontSize="30px" 
+                        Clicked="btn_Clicked"
+                        VerticalOptions="FillAndExpand">
+                </Button>
 
+                <Button x:Name="btn2"
+                        Text="Vajuta siia" 
+                        BackgroundColor="DarkCyan" 
+                        BorderColor="Aquamarine" 
+                        FontFamily="Comic Sans MS" 
+                        FontSize="30px" 
+                        Clicked="btn2_Clicked"
+                        VerticalOptions="FillAndExpand">
 
                 </Button>
-  
-                <Button x:Name="btn2" 
-                    Text="Vajuta siia" 
-                    BackgroundColor="DarkCyan" 
-                    BorderColor="Aquamarine" 
-                    FontFamily="Comic Sans MS" 
-                    FontSize="30px" 
-                    Clicked="btn2_Clicked"
-
-
-            </Button>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
