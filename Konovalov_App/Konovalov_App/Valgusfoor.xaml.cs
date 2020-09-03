@@ -32,21 +32,22 @@ namespace Konovalov_App
                         yl.BackgroundColor = Color.White;
                         lg.BackgroundColor = Color.White;
                         rd.BackgroundColor = Color.Red;
-                        Thread.Sleep(1000); // задержка после смены цвета
+                        //Thread.Sleep(1000); // задержка после смены цвета
                     }
                     else if (value == 1)
                     {
                         rd.BackgroundColor = Color.White;
                         yl.BackgroundColor = Color.White;
                         lg.BackgroundColor = Color.LightGreen;
-                        Thread.Sleep(1000);
+                        //Thread.Sleep(1000);
+                        
                     }
                     else if (value == 2)
                     {
                         rd.BackgroundColor = Color.White;
                         lg.BackgroundColor = Color.White;
                         yl.BackgroundColor = Color.Yellow;
-                        Thread.Sleep(1000);
+                        //Thread.Sleep(1000);
                     }
 
                 }                
