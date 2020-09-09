@@ -2,87 +2,187 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
-using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using Xamarin.Forms.Xaml;
+
 
 namespace Konovalov_App
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Valgusfoor2 : ContentPage
     {
+        Label punane, kollane, roheline;
+        Frame pun, kol, roh;
+        Button on, off;
+        bool on_off;
         public Valgusfoor2()
         {
             //InitializeComponent();
-            Button on = new Button()
-            {
-                
-                Text = "Start",
-                FontSize = 30,
-                FontAttributes= FontAttributes.Bold
 
-            };
-            Label punane = new Label()
+            punane = new Label()
             {
                 Text = "punane",
-                TextColor = Color.Red,
-                FontSize = 30,
-
-            };
-            Frame pun = new Frame()
-            {
-                BackgroundColor = Color.Red,
-                Content = punane,
-                Margin = new Thickness(80, 0, 80, 0),
-                CornerRadius = 90,
-            };
-            Label kollane = new Label()
-            {
-                Text = "kollane",
-                TextColor = Color.Yellow,
+                TextColor = Color.Black,
                 FontSize = 30,
                 FontAttributes = FontAttributes.Bold
-
             };
-            Frame kol = new Frame()
+            kollane = new Label()
+            {
+                Text = "kollane",
+                TextColor = Color.Black,
+                FontSize = 30,
+                FontAttributes = FontAttributes.Bold
+            };
+            roheline = new Label()
+            {
+                Text = "roheline",
+                TextColor = Color.Black,
+                FontSize = 30,
+                FontAttributes = FontAttributes.Bold
+            };
+            kol = new Frame()
             {
                 BackgroundColor = Color.Yellow,
                 Content = kollane,
-                Margin = new Thickness( 80, 0, 80, 0),
                 CornerRadius = 90,
+                Margin = new Thickness(80, 0, 80, 0),
+                HorizontalOptions = LayoutOptions.Center,
 
-                
-                
             };
-            Label roheline = new Label()
+            pun = new Frame()
             {
-                Text = "roheline",
-                TextColor = Color.Green,
-                FontSize = 30,
-
+                BackgroundColor = Color.Red,
+                Content = punane,
+                CornerRadius = 90,
+                Margin = new Thickness(80, 0, 80, 0),
+                HorizontalOptions = LayoutOptions.Center,
             };
-            Frame roh = new Frame()
+            roh = new Frame()
             {
                 BackgroundColor = Color.Green,
                 Content = roheline,
-                Margin = new Thickness(80, 0, 80, 0),
                 CornerRadius = 90,
+                Margin = new Thickness(80, 0, 80, 0),
+                HorizontalOptions = LayoutOptions.Center,
+            };
+            on = new Button()
+            {
+                WidthRequest = 60,
+                HeightRequest = 60,
+                Text = "start",
+            };
+            off = new Button()
+            {
+                WidthRequest = 60,
+                HeightRequest = 60,
+                Text = "Stop",
+                HorizontalOptions = LayoutOptions.End,
+
             };
             StackLayout stackLayout = new StackLayout()
             {
-                Children = {pun, kol, roh}
 
+                Padding = 50,
+                Children = { pun, kol, roh, on, off }
             };
-            Content = stackLayout;
-            stackLayout.Orientation = StackOrientation.Horizontal;
-            
 
-           
+            // StackLayout lay = new StackLayout()
+            // {
+            //     Children = {on, off}
+            // };
+
+            on.Clicked += On_Clicked;
+            off.Clicked += Off_Clicked;
+
+
+            Content = stackLayout;
+
+            var tap = new TapGestureRecognizer();
+            tap.Tapped += Tap_Tapped;
+            pun.GestureRecognizers.Add(tap);
+
 
         }
-     
 
+        private void Tap_Tapped(object sender, EventArgs e)
+        {
+            Frame fr = sender as Frame;
+            if (fr == pun) { punane.Text = "Oota!"; }
+            if (fr== kol) {; }
+        }
+
+        private void Off_Clicked(object sender, EventArgs e)
+        {
+            pun.BackgroundColor = Color.Gray;
+            kol.BackgroundColor = Color.Gray;
+            roh.BackgroundColor = Color.Gray;
+            cycle = false;
+            clicc = 0;
+
+        }
+        int clicc = 0;
+        private Random rnd = new Random();
+        bool cycle = true;
+        private async void On_Clicked(object sender, EventArgs e)
+        {
+            clicc++;
+            cycle = true;
+            while (cycle)
+            {
+                if (clicc % 2 == 0)
+                {
+                    Color randomColor = System.Drawing.Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
+                    Color randomColor2 = System.Drawing.Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
+                    Color randomColor3 = System.Drawing.Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
+                    pun.BackgroundColor = randomColor;
+                    kol.BackgroundColor = randomColor2;
+                    roh.BackgroundColor = randomColor3;
+                    await Task.Run(() => Thread.Sleep(1000));
+                }
+
+                else
+                {
+                    {
+                        roh.BackgroundColor = Color.Gray;
+                        kol.BackgroundColor = Color.Gray;
+                        pun.BackgroundColor = Color.Red;
+                        await Task.Run(() => Thread.Sleep(1000));
+                        roh.BackgroundColor = Color.Gray;
+                        kol.BackgroundColor = Color.Yellow;
+                        pun.BackgroundColor = Color.Gray;
+                        await Task.Run(() => Thread.Sleep(1000));
+                        roh.BackgroundColor = Color.Green;
+                        kol.BackgroundColor = Color.Gray;
+                        pun.BackgroundColor = Color.Gray;
+                        await Task.Run(() => Thread.Sleep(1000));
+                        for (int i = 0; i < 5; i++)
+                        {
+                            roh.BackgroundColor = Color.Gray;
+                            kol.BackgroundColor = Color.Gray;
+                            pun.BackgroundColor = Color.Gray;
+                            await Task.Run(() => Thread.Sleep(1000));
+                            roh.BackgroundColor = Color.Green;
+                            kol.BackgroundColor = Color.Gray;
+                            pun.BackgroundColor = Color.Gray;
+                            await Task.Run(() => Thread.Sleep(1000));
+                        }
+                        roh.BackgroundColor = Color.Gray;
+                        kol.BackgroundColor = Color.Yellow;
+                        pun.BackgroundColor = Color.Gray;
+                        await Task.Run(() => Thread.Sleep(1000));
+                        roh.BackgroundColor = Color.Gray;
+                        kol.BackgroundColor = Color.Gray;
+                        pun.BackgroundColor = Color.Red;
+                        await Task.Run(() => Thread.Sleep(1000));
+                        clicc = 0;
+
+
+                    }
+
+                }
+            }
+        }
     }
 }

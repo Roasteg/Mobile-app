@@ -15,7 +15,7 @@
                         BackgroundColor="DarkCyan" 
                         BorderColor="Aquamarine" 
                         FontFamily="Comic Sans MS" 
-                        FontSize="30px" 
+                         
                         Clicked="btn_Clicked"
                         VerticalOptions="FillAndExpand">
                 </Button>
@@ -25,7 +25,7 @@
                         BackgroundColor="DarkCyan" 
                         BorderColor="Aquamarine" 
                         FontFamily="Comic Sans MS" 
-                        FontSize="30px" 
+                        
                         Clicked="btn2_Clicked"
                         VerticalOptions="FillAndExpand">
 
