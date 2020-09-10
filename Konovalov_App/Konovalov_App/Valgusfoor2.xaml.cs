@@ -117,6 +117,9 @@ namespace Konovalov_App
 
         private void Off_Clicked(object sender, EventArgs e)
         {
+            kollane.Text = "kollane";
+            punane.Text = "punane";
+            roheline.Text = "roheline";
             pun.BackgroundColor = Color.Gray;
             kol.BackgroundColor = Color.Gray;
             roh.BackgroundColor = Color.Gray;
@@ -135,6 +138,9 @@ namespace Konovalov_App
             {
                 if (clicc % 2 == 0)
                 {
+                    kollane.Text = "";
+                    punane.Text = "";
+                    roheline.Text = "";
                     Color randomColor = System.Drawing.Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
                     Color randomColor2 = System.Drawing.Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
                     Color randomColor3 = System.Drawing.Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
