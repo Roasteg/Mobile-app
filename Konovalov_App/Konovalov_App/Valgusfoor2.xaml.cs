@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -110,7 +111,8 @@ namespace Konovalov_App
         {
             Frame fr = sender as Frame;
             if (fr == pun) { punane.Text = "Oota!"; }
-            if (fr== kol) {; }
+            if (fr== kol) {kollane.Text="Valmistsa!"; }
+            if (fr == roh) { roheline.Text = "On vaja sõitma!"; }
         }
 
         private void Off_Clicked(object sender, EventArgs e)
@@ -140,8 +142,11 @@ namespace Konovalov_App
                     kol.BackgroundColor = randomColor2;
                     roh.BackgroundColor = randomColor3;
                     await Task.Run(() => Thread.Sleep(1000));
+                    
                 }
 
+
+            
                 else
                 {
                     {
@@ -157,27 +162,8 @@ namespace Konovalov_App
                         kol.BackgroundColor = Color.Gray;
                         pun.BackgroundColor = Color.Gray;
                         await Task.Run(() => Thread.Sleep(1000));
-                        for (int i = 0; i < 5; i++)
-                        {
-                            roh.BackgroundColor = Color.Gray;
-                            kol.BackgroundColor = Color.Gray;
-                            pun.BackgroundColor = Color.Gray;
-                            await Task.Run(() => Thread.Sleep(1000));
-                            roh.BackgroundColor = Color.Green;
-                            kol.BackgroundColor = Color.Gray;
-                            pun.BackgroundColor = Color.Gray;
-                            await Task.Run(() => Thread.Sleep(1000));
-                        }
-                        roh.BackgroundColor = Color.Gray;
-                        kol.BackgroundColor = Color.Yellow;
-                        pun.BackgroundColor = Color.Gray;
-                        await Task.Run(() => Thread.Sleep(1000));
-                        roh.BackgroundColor = Color.Gray;
-                        kol.BackgroundColor = Color.Gray;
-                        pun.BackgroundColor = Color.Red;
-                        await Task.Run(() => Thread.Sleep(1000));
-                        clicc = 0;
-
+                        
+         
 
                     }
 
