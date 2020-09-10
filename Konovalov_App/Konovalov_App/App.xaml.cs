@@ -10,7 +10,7 @@ namespace Konovalov_App
         {
             InitializeComponent();
 
-            MainPage = new Valgusfoor2();
+            MainPage = new Slider();
         }
 
         protected override void OnStart()

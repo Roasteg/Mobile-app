@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Konovalov_App.Slider">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Slider">
+                <Setter Property="Maximum" Value="255"></Setter>                
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+            </Style>
+        </ResourceDictionary>
+        
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <Label x:Name="redLabel"></Label>
+            <Slider x:Name="Slider1" Minimum="0" Maximum="255" Value="15" ValueChanged="Slider_ValueChanged" BackgroundColor="White" HorizontalOptions="FillAndExpand"></Slider>
+            <Label x:Name="greenLabel"></Label>
+            <Slider x:Name="Slider2" Minimum="0" Maximum="255" Value="15" ValueChanged="Slider_ValueChanged" BackgroundColor="White" HorizontalOptions="FillAndExpand"></Slider>
+            <Label x:Name="blueLabel"></Label>
+            <Slider x:Name="Slider3" Minimum="0" Maximum="255" Value="15" ValueChanged="Slider_ValueChanged" BackgroundColor="White" HorizontalOptions="FillAndExpand"></Slider>
+            <Frame x:Name="Frame1"></Frame>
+            <Button x:Name="Rand" Text="Random color" Clicked="Rand_Clicked"></Button>
+            <BoxView x:Name="box" Color="Black" VerticalOptions="FillAndExpand"></BoxView>
+
+           
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

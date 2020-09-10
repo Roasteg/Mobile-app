@@ -49,7 +49,7 @@ namespace Konovalov_App
                 Content = kollane,
                 CornerRadius = 90,
                 Margin = new Thickness(80, 0, 80, 0),
-                HorizontalOptions = LayoutOptions.Center,
+                
 
             };
             pun = new Frame()
@@ -58,7 +58,7 @@ namespace Konovalov_App
                 Content = punane,
                 CornerRadius = 90,
                 Margin = new Thickness(80, 0, 80, 0),
-                HorizontalOptions = LayoutOptions.Center,
+                
             };
             roh = new Frame()
             {
@@ -66,13 +66,15 @@ namespace Konovalov_App
                 Content = roheline,
                 CornerRadius = 90,
                 Margin = new Thickness(80, 0, 80, 0),
-                HorizontalOptions = LayoutOptions.Center,
+                
             };
             on = new Button()
             {
                 WidthRequest = 60,
                 HeightRequest = 60,
                 Text = "start",
+                HorizontalOptions = LayoutOptions.Start,
+                
             };
             off = new Button()
             {
@@ -84,7 +86,6 @@ namespace Konovalov_App
             };
             StackLayout stackLayout = new StackLayout()
             {
-
                 Padding = 50,
                 Children = { pun, kol, roh, on, off }
             };
