@@ -22,7 +22,7 @@
             <Label x:Name="blueLabel"></Label>
             <Slider x:Name="Slider3" Minimum="0" Maximum="255" Value="15" ValueChanged="Slider_ValueChanged" BackgroundColor="White" HorizontalOptions="FillAndExpand"></Slider>
             <Frame x:Name="Frame1"></Frame>
-            <Button x:Name="Rand" Text="Random color" Clicked="Rand_Clicked"></Button>
+            <Button x:Name="Randmd" Text="Random color" Clicked="Rand_Clicked"></Button>
             <BoxView x:Name="box" Color="Black" VerticalOptions="FillAndExpand"></BoxView>
 
            

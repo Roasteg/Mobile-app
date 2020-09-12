@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics.Tracing;
 using System.Linq;
 using System.Text;
@@ -27,21 +28,27 @@ namespace Konovalov_App
                 Text = "punane",
                 TextColor = Color.Black,
                 FontSize = 30,
-                FontAttributes = FontAttributes.Bold
+                FontAttributes = FontAttributes.Bold,
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center
             };
             kollane = new Label()
             {
                 Text = "kollane",
                 TextColor = Color.Black,
                 FontSize = 30,
-                FontAttributes = FontAttributes.Bold
+                FontAttributes = FontAttributes.Bold,
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center
             };
             roheline = new Label()
             {
                 Text = "roheline",
                 TextColor = Color.Black,
                 FontSize = 30,
-                FontAttributes = FontAttributes.Bold
+                FontAttributes = FontAttributes.Bold,
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center
             };
             kol = new Frame()
             {
@@ -49,7 +56,9 @@ namespace Konovalov_App
                 Content = kollane,
                 CornerRadius = 90,
                 Margin = new Thickness(80, 0, 80, 0),
-                
+                VerticalOptions = LayoutOptions.FillAndExpand,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+
 
             };
             pun = new Frame()
@@ -58,7 +67,9 @@ namespace Konovalov_App
                 Content = punane,
                 CornerRadius = 90,
                 Margin = new Thickness(80, 0, 80, 0),
-                
+                VerticalOptions = LayoutOptions.FillAndExpand,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+
             };
             roh = new Frame()
             {
@@ -66,34 +77,35 @@ namespace Konovalov_App
                 Content = roheline,
                 CornerRadius = 90,
                 Margin = new Thickness(80, 0, 80, 0),
-                
+                VerticalOptions = LayoutOptions.FillAndExpand,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+
             };
             on = new Button()
-            {
-                WidthRequest = 60,
-                HeightRequest = 60,
+            {                
                 Text = "start",
-                HorizontalOptions = LayoutOptions.Start,
-                
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.FillAndExpand,
+
             };
             off = new Button()
-            {
-                WidthRequest = 60,
-                HeightRequest = 60,
+            {                
                 Text = "Stop",
-                HorizontalOptions = LayoutOptions.End,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.FillAndExpand,
 
+            };
+            StackLayout btns = new StackLayout()
+            {
+                Orientation=StackOrientation.Horizontal,
+                HeightRequest = 65,
+                Children = {on, off}
             };
             StackLayout stackLayout = new StackLayout()
             {
-                Padding = 50,
-                Children = { pun, kol, roh, on, off }
+               Children = { pun, kol, roh, btns}
             };
-
-            // StackLayout lay = new StackLayout()
-            // {
-            //     Children = {on, off}
-            // };
+  
 
             on.Clicked += On_Clicked;
             off.Clicked += Off_Clicked;
@@ -104,6 +116,9 @@ namespace Konovalov_App
             var tap = new TapGestureRecognizer();
             tap.Tapped += Tap_Tapped;
             pun.GestureRecognizers.Add(tap);
+            kol.GestureRecognizers.Add(tap);
+            roh.GestureRecognizers.Add(tap);
+
 
 
         }
@@ -111,21 +126,31 @@ namespace Konovalov_App
         private void Tap_Tapped(object sender, EventArgs e)
         {
             Frame fr = sender as Frame;
-            if (fr == pun) { punane.Text = "Oota!"; }
-            if (fr== kol) {kollane.Text="Valmistsa!"; }
-            if (fr == roh) { roheline.Text = "On vaja sõitma!"; }
+            if (clicc == 0)
+            {
+                punane.Text = "Lülita valgusfoor";
+            }
+            else
+            {               
+                if (fr == pun) { punane.Text = "Oota!"; }
+                else if (fr == kol) { kollane.Text = "Valmistsa!"; }
+                else if (fr == roh) { roheline.Text = "On vaja sõitma!"; }
+            }
+           
         }
 
         private void Off_Clicked(object sender, EventArgs e)
         {
+            On_Clicked
             kollane.Text = "kollane";
             punane.Text = "punane";
             roheline.Text = "roheline";
             pun.BackgroundColor = Color.Gray;
             kol.BackgroundColor = Color.Gray;
             roh.BackgroundColor = Color.Gray;
-            cycle = false;
             clicc = 0;
+            
+            
 
         }
         int clicc = 0;
@@ -133,12 +158,13 @@ namespace Konovalov_App
         bool cycle = true;
         private async void On_Clicked(object sender, EventArgs e)
         {
+            
             clicc++;
             cycle = true;
             while (cycle)
             {
                 if (clicc % 2 == 0)
-                {
+                {                   
                     kollane.Text = "";
                     punane.Text = "";
                     roheline.Text = "";
@@ -157,6 +183,9 @@ namespace Konovalov_App
                 else
                 {
                     {
+                        kollane.Text = "kollane";
+                        punane.Text = "punane";
+                        roheline.Text = "roheline";
                         roh.BackgroundColor = Color.Gray;
                         kol.BackgroundColor = Color.Gray;
                         pun.BackgroundColor = Color.Red;
@@ -169,7 +198,6 @@ namespace Konovalov_App
                         kol.BackgroundColor = Color.Gray;
                         pun.BackgroundColor = Color.Gray;
                         await Task.Run(() => Thread.Sleep(1000));
-                        
          
 
                     }

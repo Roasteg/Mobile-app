@@ -55,5 +55,6 @@ namespace Konovalov_App
             Slider3.Value = clr.Next(0, 255);
 
         }
+
     }
 }
