@@ -52,7 +52,7 @@ namespace Konovalov_App
             };
             kol = new Frame()
             {
-                BackgroundColor = Color.Yellow,
+                BackgroundColor = Color.Gray,
                 Content = kollane,
                 CornerRadius = 90,
                 Margin = new Thickness(80, 0, 80, 0),
@@ -63,7 +63,7 @@ namespace Konovalov_App
             };
             pun = new Frame()
             {
-                BackgroundColor = Color.Red,
+                BackgroundColor = Color.Gray,
                 Content = punane,
                 CornerRadius = 90,
                 Margin = new Thickness(80, 0, 80, 0),
@@ -73,7 +73,7 @@ namespace Konovalov_App
             };
             roh = new Frame()
             {
-                BackgroundColor = Color.Green,
+                BackgroundColor = Color.Gray,
                 Content = roheline,
                 CornerRadius = 90,
                 Margin = new Thickness(80, 0, 80, 0),
@@ -141,7 +141,7 @@ namespace Konovalov_App
 
         private void Off_Clicked(object sender, EventArgs e)
         {
-            On_Clicked
+
             kollane.Text = "kollane";
             punane.Text = "punane";
             roheline.Text = "roheline";
